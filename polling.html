@@ -1,0 +1,48 @@
+
+<html>
+<head>
+<script>
+function getVote(int) {
+  xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+
+      document.getElementById("poll").innerHTML=this.responseText;
+
+    }
+  }
+  var url="poll_vote.php";
+  url=url+"?vote1="+int1+"&vote2="+int2+"&vote3="+int3;
+  xmlhttp.open("GET",url,true);
+  xmlhttp.send();
+}
+</script>
+</head>
+
+<body>
+<div id="poll">
+<h1 align=center> Thank you for anticipate in the poll</h1>
+<h3>Question 1.Have you been to WuHan?</h3>
+<form>
+Yes:
+<input type="radio" name="vote1" value="0" onclick="getVote(this.value)">
+<br>No:
+<input type="radio" name="vote1" value="1" onclick="getVote(this.value)">
+
+
+<h3>Question 2.Do you know about coronavirus?</h3>
+Yes:
+<input type="radio" name="vote2" value="0" onclick="getVote(this.value)">
+<br>No:
+<input type="radio" name="vote2" value="1" onclick="getVote(this.value)">
+
+
+<h3>Question 3.Do you like homebase studying?</h3>
+Yes:
+<input type="radio" name="vote3" value="0" onclick="getVote(this.value)">
+<br>No:
+<input type="radio" name="vote3" value="1" onclick="getVote(this.value)">
+</form>
+</div>
+</body>
+</html>
